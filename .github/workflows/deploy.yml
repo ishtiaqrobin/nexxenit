@@ -1,0 +1,39 @@
+name: Deploy to cPanel
+on:
+  push:
+    branches:
+      - main # or your default branch name
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: "20"
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build project
+        run: npm run build
+
+      - name: Install SSH Key
+        uses: shimataro/ssh-key-action@v2
+        with:
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          known_hosts: unnecessary
+          if_key_exists: replace
+
+      - name: Adding Known Hosts
+        run: ssh-keyscan -H nexxenit.com >> ~/.ssh/known_hosts
+
+      - name: Deploy with rsync
+        run: |
+          cp .htaccess dist/
+          rsync -avz --delete ./dist/ ezbitlyc@nexxenit.com:/home/ezbitlyc/nexxenit.com/
