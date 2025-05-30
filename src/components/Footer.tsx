@@ -29,25 +29,25 @@ const services = [
 const socialLinks = [
   {
     name: "Facebook",
-    href: "https://facebook.com",
+    href: "https://www.facebook.com/people/Nexxen-It/61577038701896/",
     icon: Facebook,
     color: "hover:text-blue-600",
   },
   {
     name: "Instagram",
-    href: "https://instagram.com",
+    href: "https://www.instagram.com/ishtiaqrobins/",
     icon: Instagram,
     color: "hover:text-pink-600",
   },
   {
     name: "LinkedIn",
-    href: "https://linkedin.com",
+    href: "https://www.linkedin.com/in/ishtiaq-robin/",
     icon: Linkedin,
     color: "hover:text-blue-500",
   },
   {
     name: "Github",
-    href: "https://github.com",
+    href: "https://github.com/ishtiaqrobin",
     icon: Github,
     color: "hover:text-gray-900 dark:hover:text-white",
   },
