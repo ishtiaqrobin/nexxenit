@@ -1,72 +1,126 @@
-
-import { Code2 } from "lucide-react";
+import { Icon } from "@iconify/react";
+import { motion } from "framer-motion";
 
 const technologies = [
   {
     name: "React",
-    description: "Modern frontend library for building interactive user interfaces",
-    color: "from-blue-400 to-cyan-400"
+    description:
+      "Modern frontend library for building interactive user interfaces",
+    color: "from-[#61DAFB] to-[#00D8FF]",
+    icon: "logos:react",
   },
   {
     name: "Laravel",
     description: "Elegant PHP framework for robust backend development",
-    color: "from-red-400 to-orange-400"
+    color: "from-[#FF2D20] to-[#FF5C48]",
+    icon: "logos:laravel",
   },
   {
     name: "Django",
     description: "High-level Python framework for rapid development",
-    color: "from-green-400 to-emerald-400"
+    color: "from-[#092E20] to-[#44B78B]",
+    icon: "logos:django-icon",
   },
   {
     name: "WordPress",
     description: "Popular CMS for content-driven websites and blogs",
-    color: "from-blue-600 to-indigo-600"
+    color: "from-[#21759B] to-[#464342]",
+    icon: "logos:wordpress-icon",
   },
   {
     name: "Next.js",
     description: "Full-stack React framework for production-grade applications",
-    color: "from-gray-700 to-gray-900"
+    color: "from-black to-gray-800",
+    icon: "logos:nextjs-icon",
   },
   {
-    name: "Astro.js",
-    description: "Modern static site generator for fast, content-focused websites",
-    color: "from-orange-400 to-pink-400"
+    name: "Astro",
+    description:
+      "Modern static site generator for fast, content-focused websites",
+    color: "from-[#FF5D01] to-[#FF7E33]",
+    icon: "logos:astro-icon",
   },
   {
     name: "MERN Stack",
     description: "MongoDB, Express, React, Node.js for full-stack development",
-    color: "from-green-500 to-teal-500"
+    color: "from-[#00ED64] to-[#00B74A]",
+    icon: "logos:mongodb-icon",
   },
   {
     name: "Python",
-    description: "Versatile programming language for automation and AI solutions",
-    color: "from-yellow-400 to-blue-500"
-  }
+    description:
+      "Versatile programming language for automation and AI solutions",
+    color: "from-[#3776AB] to-[#FFD43B]",
+    icon: "logos:python",
+  },
 ];
 
 export const TechStack = () => {
   return (
     <section id="techstack" className="py-20 bg-white dark:bg-gray-900">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="text-center mb-16"
+        >
           <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">
             Our Tech Stack
           </h2>
           <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-            We leverage cutting-edge technologies and frameworks to deliver exceptional solutions that meet your business needs.
+            We leverage cutting-edge technologies and frameworks to deliver
+            exceptional solutions that meet your business needs.
           </p>
-        </div>
-        
+        </motion.div>
+
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {technologies.map((tech, index) => (
-            <div
+            <motion.div
               key={index}
-              className="group relative bg-gray-50 dark:bg-gray-800 rounded-xl p-6 border border-gray-200 dark:border-gray-700 hover:border-purple-500 dark:hover:border-purple-500 transition-all duration-300 hover:transform hover:scale-105"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              // whileHover={{ scale: 1.05 }}
+              // whileTap={{ scale: 0.75 }}
+              className="group relative bg-gray-50 dark:bg-gray-800 rounded-xl p-6 border border-gray-200 dark:border-gray-700 hover:border-transparent hover:shadow-xl hover:shadow-purple-500/20"
             >
               <div className="flex flex-col items-center text-center">
-                <div className={`w-16 h-16 rounded-lg bg-gradient-to-r ${tech.color} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300`}>
-                  <Code2 className="w-8 h-8 text-white" />
-                </div>
+                <motion.div
+                  whileHover={{ scale: 1.1 }}
+                  // whileTap={{ scale: 0.75 }}
+                  transition={{
+                    type: "spring",
+                    stiffness: 400,
+                    damping: 17,
+                  }}
+                  className={`w-16 h-16 rounded-lg bg-gradient-to-r ${tech.color} flex items-center justify-center mb-4 p-3`}
+                >
+                  <Icon
+                    icon={tech.icon}
+                    className="w-full h-full"
+                    style={{
+                      filter: [
+                        "React",
+                        "Laravel",
+                        "MERN Stack",
+                        "WordPress",
+                      ].includes(tech.name)
+                        ? "brightness(0) invert(1)"
+                        : "none",
+                      color: [
+                        "React",
+                        "Laravel",
+                        "MERN Stack",
+                        "WordPress",
+                      ].includes(tech.name)
+                        ? "#FFFFFF"
+                        : "inherit",
+                    }}
+                  />
+                </motion.div>
                 <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
                   {tech.name}
                 </h3>
@@ -74,7 +128,7 @@ export const TechStack = () => {
                   {tech.description}
                 </p>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>
