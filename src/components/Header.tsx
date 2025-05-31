@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import { Menu, PhoneCall , X, } from "lucide-react";
+import { Menu, Phone, X } from "lucide-react";
 import { ThemeToggle } from "./ThemeToggle";
 import darkLogo from "@/assets/images/logo/darkmodelogo.png";
 import lightLogo from "@/assets/images/logo/lightmodelogo.png";
@@ -147,9 +147,10 @@ export const Header = () => {
               ))}
               <a
                 href="#"
-                className="text-base text-green-500 dark:text-green-500 hover:text-gray-900 dark:hover:text-white transition-all duration-300 font-medium"
-              ><PhoneCall className="inline-block mr-1 " /> 
-              +8801762627422
+                className="text-base text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-all duration-300 font-medium"
+              >
+                <Phone className="inline-block mr-1" />
+                +880 1762627422
               </a>
 
               <ThemeToggle />

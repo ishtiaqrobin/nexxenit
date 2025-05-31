@@ -56,7 +56,7 @@ export const Contact = () => {
                     Email
                   </h3>
                   <p className="text-gray-600 dark:text-gray-300">
-                  support@nexxenit.com
+                    support@nexxenit.com
                   </p>
                 </div>
               </motion.div>
