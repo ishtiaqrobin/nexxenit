@@ -10,7 +10,7 @@ const technologies = [
     icon: "logos:react",
   },
   {
-    name: "Laravel",
+    name: "PHP-Laravel",
     description: "Elegant PHP framework for robust backend development",
     color: "from-[#FF2D20] to-[#FF5C48]",
     icon: "logos:laravel",
