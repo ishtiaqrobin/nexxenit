@@ -1,3 +1,9 @@
+npm run dev --open localhost
+git add .
+git commit -m "some text"
+git push
+
+
 # Welcome to your Nexxen IT project
 
 ## Project info

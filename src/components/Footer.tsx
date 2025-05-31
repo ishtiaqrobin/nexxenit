@@ -187,7 +187,7 @@ export const Footer = () => {
               >
                 <Phone className="w-5 h-5 text-purple-600 dark:text-purple-400" />
                 <span className="text-gray-600 dark:text-gray-400">
-                  +880 1762627422
+                  +880 1646202917
                 </span>
               </motion.li>
               <motion.li
