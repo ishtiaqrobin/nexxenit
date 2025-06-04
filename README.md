@@ -10,4 +10,6 @@ npm run dev
 
 git add .
 git commit -m "meaningful message"
-git push (if doesn't work. use: git push origin main)
+git push (if doesn't work. Use: git push origin main)
+
+deploy again
