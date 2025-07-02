@@ -135,12 +135,18 @@ export const Header = () => {
               {menuItems.map((item) => (
                 <a
                   key={item.id}
-                  href={`#${item.id}`}
+                  href={`/${item.id === 'home' ? '' : '#' + item.id}`}
                   className={`text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-all duration-300 font-medium ${
                     activeSection === item.id
                       ? "!text-purple-600 dark:!text-purple-400 font-medium"
                       : ""
                   }`}
+                  onClick={(e) => {
+                    if (window.location.pathname !== "/") {
+                      e.preventDefault();
+                      window.location.href = `/${item.id === 'home' ? '' : '#' + item.id}`;
+                    }
+                  }}
                 >
                   {item.label}
                 </a>
@@ -190,27 +196,34 @@ export const Header = () => {
                   className="absolute top-0 left-0 right-0 mt-2 py-2 bg-gray-50 dark:bg-gray-800 rounded-lg shadow-lg border border-gray-200 dark:border-gray-700"
                 >
                   {menuItems.map((item, index) => (
-                    <motion.a
-                      key={item.id}
-                      initial={{ opacity: 0, x: -20 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      exit={{ opacity: 0, x: -20 }}
-                      transition={{
-                        type: "spring",
-                        stiffness: 300,
-                        damping: 25,
-                        delay: index * 0.05,
-                      }}
-                      href={`#${item.id}`}
-                      onClick={() => handleMenuItemClick(item.id)}
-                      className={`block px-4 py-2 text-base transition-colors font-medium duration-200 ${
-                        activeSection === item.id
-                          ? "!text-purple-600 dark:!text-purple-400 bg-purple-100 dark:bg-purple-900/30"
-                          : "text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700/50"
-                      }`}
-                    >
-                      {item.label}
-                    </motion.a>
+                  <motion.a
+                    key={item.id}
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: -20 }}
+                    transition={{
+                      type: "spring",
+                      stiffness: 300,
+                      damping: 25,
+                      delay: index * 0.05,
+                    }}
+                    href={`/${item.id === 'home' ? '' : '#' + item.id}`}
+                    onClick={(e) => {
+                      if (window.location.pathname !== "/") {
+                        e.preventDefault();
+                        window.location.href = `/${item.id === 'home' ? '' : '#' + item.id}`;
+                      } else {
+                        handleMenuItemClick(item.id);
+                      }
+                    }}
+                    className={`block px-4 py-2 text-base transition-colors font-medium duration-200 ${
+                      activeSection === item.id
+                        ? "!text-purple-600 dark:!text-purple-400 bg-purple-100 dark:bg-purple-900/30"
+                        : "text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700/50"
+                    }`}
+                  >
+                    {item.label}
+                  </motion.a>
                   ))}
                 </motion.div>
               </div>

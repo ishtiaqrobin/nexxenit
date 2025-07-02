@@ -1,4 +1,5 @@
 import { Header } from "@/components/Header";
+import { useHashScroll } from "@/hooks/useHashScroll";
 import { Hero } from "@/components/Hero";
 import { Services } from "@/components/Services";
 import { TechStack } from "@/components/TechStack";
@@ -11,6 +12,7 @@ import { FeaturedProjects } from "@/components/FeaturedProjects";
 import { ScrollToTop } from "@/components/ScrollToTop";
 
 const Index = () => {
+  useHashScroll();
   return (
     <ThemeProvider defaultTheme="dark" storageKey="nexxenit-theme">
       <div className="min-h-screen bg-white dark:bg-gray-900 overflow-x-hidden">
