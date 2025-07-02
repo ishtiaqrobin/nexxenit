@@ -214,9 +214,13 @@ export const Footer = () => {
           transition={{ duration: 0.5, delay: 0.5 }}
           className="mt-16 pt-8 border-t border-gray-200 dark:border-gray-800"
         >
-          <p className="text-center text-gray-600 dark:text-gray-400">
-            © {currentYear} Nexxen IT. All rights reserved.
-          </p>
+          <div className="flex flex-col md:flex-row items-center justify-center gap-2 md:gap-6 text-center text-gray-600 dark:text-gray-400">
+            <span>© {currentYear} Nexxen IT. All rights reserved.</span>
+            <nav className="flex space-x-6">
+              <a href="/privacy-policy" className="transition-colors hover:text-purple-600 dark:hover:text-purple-400">Privacy Policy</a>
+              <a href="/terms-of-services" className="transition-colors hover:text-purple-600 dark:hover:text-purple-400">Terms of Services</a>
+            </nav>
+          </div>
         </motion.div>
       </div>
     </footer>
