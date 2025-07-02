@@ -1,6 +1,8 @@
+
 import React from "react";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
+import { ThemeProvider } from "@/components/ThemeProvider";
 
 const termsContent = [
   {
@@ -31,20 +33,22 @@ const termsContent = [
 
 export default function TermsAndConditions() {
   return (
-    <>
-      <Header />
-      <main className="container mx-auto min-h-screen bg-white dark:bg-gray-900 flex flex-col items-center pt-24 pb-12 px-4">
-        <h1 className="text-4xl font-bold mb-8 text-center">Terms of Services</h1>
-        <div className="max-w-2xl w-full space-y-8 text-gray-700 dark:text-gray-200">
-          {termsContent.map((section, idx) => (
-            <section key={idx}>
-              <h2 className="text-2xl font-semibold mb-2">{section.title}</h2>
-              <p className="leading-relaxed whitespace-pre-line">{section.text}</p>
-            </section>
-          ))}
-        </div>
-      </main>
-      <Footer />
-    </>
+    <ThemeProvider defaultTheme="dark" storageKey="nexxenit-theme">
+      <div className="min-h-screen bg-white dark:bg-gray-900 overflow-x-hidden">
+        <Header />
+        <main className="container mx-auto flex flex-col items-center pt-24 pb-12 px-4">
+          <h1 className="text-4xl font-bold mb-8 text-center">Terms of Services</h1>
+          <div className="max-w-2xl w-full space-y-8 text-gray-700 dark:text-gray-200">
+            {termsContent.map((section, idx) => (
+              <section key={idx}>
+                <h2 className="text-2xl font-semibold mb-2">{section.title}</h2>
+                <p className="leading-relaxed whitespace-pre-line">{section.text}</p>
+              </section>
+            ))}
+          </div>
+        </main>
+        <Footer />
+      </div>
+    </ThemeProvider>
   );
 }
